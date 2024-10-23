@@ -9,13 +9,13 @@ from rest_framework.pagination import PageNumberPagination
 from .models import Post, Follow
 from .serializers import UserSerializer, PostSerializer, LoginSerializer
 
-# Classe para registrar novos usuários
+# Classe para cadastrar Novos Usuarios 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
-# Classe para login e obtenção do token JWT
+# Classe para login e para ter o token
 class LoginView(generics.GenericAPIView):
     serializer_class = LoginSerializer
 
@@ -39,13 +39,13 @@ class LoginView(generics.GenericAPIView):
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [IsAuthenticated]  # Apenas usuários autenticados podem interagir
+    permission_classes = [IsAuthenticated] 
 
-# Feed do usuário (mostra postagens dos usuários seguidos)
+# Feed do usuário onde mostra postagens dos usuários seguidos
 class FeedView(generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
-    pagination_class = PageNumberPagination  # Paginação no feed
+    pagination_class = PageNumberPagination  
 
     def get_queryset(self):
         following = Follow.objects.filter(
@@ -53,7 +53,7 @@ class FeedView(generics.ListAPIView):
         ).values_list('followed', flat=True)
         return Post.objects.filter(author__in=following).order_by('-created_at')
 
-# Seguir um usuário
+# Faz seguir um usuário
 class FollowUserView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated]
 
