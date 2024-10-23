@@ -2,7 +2,7 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 from .views import (
     RegisterView, LoginView, PostViewSet, FeedView,
-    FollowUserView, UnfollowUserView
+    FollowUserView, UnfollowUserView, LikePostView
 )
 from django.conf import settings
 from django.conf.urls.static import static
@@ -16,6 +16,7 @@ urlpatterns = [
     path('feed/', FeedView.as_view(), name='feed'),
     path('follow/<int:user_id>/', FollowUserView.as_view(), name='follow-user'),
     path('unfollow/<int:user_id>/', UnfollowUserView.as_view(), name='unfollow-user'),
+    path('posts/<int:post_id>/like/', LikePostView.as_view(), name='like-post'),
 ] + router.urls
 
 if settings.DEBUG:

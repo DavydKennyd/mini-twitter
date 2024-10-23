@@ -6,7 +6,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework.pagination import PageNumberPagination
-from .models import Post, Follow
+from .models import Post, Follow, Like
 from .serializers import UserSerializer, PostSerializer, LoginSerializer
 
 # Classe para cadastrar Novos Usuarios 
@@ -70,3 +70,11 @@ class UnfollowUserView(generics.DestroyAPIView):
         followed_user = get_object_or_404(User, id=user_id)  # Usando get_object_or_404
         Follow.objects.filter(follower=request.user, followed=followed_user).delete()
         return Response({'detail': 'Você deixou de seguir'}, status=204)
+
+class LikePostView(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        post = Post.objects.get(id=kwargs['post_id'])
+        Like.objects.get_or_create(user=request.user, post=post)
+        return Response({'detail': 'Postagem curtida'}, status=201)
