@@ -12,3 +12,8 @@ class Follow(models.Model):
     follower = models.ForeignKey(User, related_name='following', on_delete=models.CASCADE)
     followed = models.ForeignKey(User, related_name='followers', on_delete=models.CASCADE)
 
+class Like(models.Model):
+    post = models.ForeignKey(Post, related_name="likes", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
