@@ -25,8 +25,8 @@ class PostSerializer(serializers.ModelSerializer):
         read_only_fields = ('author',)  
 
     def create(self, validated_data):
-       
         request = self.context.get('request') 
+        print(f"Dados recebidos: {validated_data}")
         validated_data['author'] = request.user 
         return super().create(validated_data)
 
