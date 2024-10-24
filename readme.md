@@ -37,8 +37,8 @@ Siga os passos abaixo para configurar e executar a aplicação Django.
 Clone o repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/seu_usuario/seu_repositorio.git
-cd seu_repositoriO 
+git clone https://github.com/DavydKennyd/mini-twitter.git
+cd mini-twitter 
 ```
 ### 2. Crie um Ambiente Virtual
 É recomendável criar um ambiente virtual para gerenciar as dependências do projeto:
@@ -73,8 +73,6 @@ DATABASES = {
     }
 }
 ```
-
-Claro! Aqui está um passo a passo para criar uma seção "Passo a Passo" no seu README.md, onde você pode incluir as etapas necessárias para configurar e executar a aplicação Django.
 
 Exemplo de Seção "Passo a Passo"
 markdown
