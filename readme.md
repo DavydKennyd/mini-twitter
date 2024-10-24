@@ -29,9 +29,6 @@
     - Host: 
     - Porta:
 
-### PASSO A PASSO
-Siga os passos abaixo para configurar e executar a aplicação Django.
-
 
 ## Passo a Passo para Configuração da Aplicação
 
@@ -42,8 +39,8 @@ Siga os passos abaixo para configurar e executar a aplicação Django.
 Clone o repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/seu_usuario/seu_repositorio.git
-cd seu_repositorio
+git clone https://github.com/DavydKennyd/mini-twitter.git
+cd mini-twitter
 ```
 ### 2. Crie um Ambiente Virtual
 É recomendável criar um ambiente virtual para gerenciar as dependências do projeto:
@@ -70,7 +67,7 @@ psql -U postgres
 CREATE DATABASE mini_twitter;
 \q
 ```
-## 5. Configure as Configurações do Banco de Dados
+### 5. Configure as Configurações do Banco de Dados
 Abra o arquivo settings.py e configure as credenciais do banco de dados:
 ```bash
 
@@ -85,13 +82,13 @@ DATABASES = {
     }
 }
 ```
-## 6. Aplique as Migrações
+### 6. Aplique as Migrações
 Aplique as migrações do Django para criar as tabelas necessárias no banco de dados:
 ```bash
 python manage.py migrate
 ```
 
-## 7. Execute o Servidor 
+### 7. Execute o Servidor 
 
 ```bash
 python manage.py runserver
