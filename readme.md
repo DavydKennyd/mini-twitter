@@ -32,53 +32,7 @@
 ### PASSO A PASSO
 Siga os passos abaixo para configurar e executar a aplicação Django.
 
-### 1. Clone o Repositório
 
-Clone o repositório para sua máquina local:
-
-```bash
-git clone https://github.com/seu_usuario/seu_repositorio.git
-cd seu_repositoriO 
-```
-### 2. Crie um Ambiente Virtual
-É recomendável criar um ambiente virtual para gerenciar as dependências do projeto:
-
-```bash
-python -m venv venv
-source venv/bin/activate  # Para Linux/Mac
-venv\Scripts\activate     # Para Windows
-```
-## 3. Instale as Dependências
-```bash
-pip install -r requirements.txt
-```
-## 4. Crie o Banco de Dados
-Acesse o console do PostgreSQL e crie um novo banco de dados:
-```bash
-psql -U postgres
-CREATE DATABASE mini_twitter;
-\q
-```
-## 5. Configure as Configurações do Banco de Dados
-Abra o arquivo settings.py e configure as credenciais do banco de dados:
-```bash
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mini_twitter',
-        'USER': 'postgres',  # ou seu_usuario se você criou um novo usuário
-        'PASSWORD': '12345', # ou a senha do seu novo usuário
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-```
-
-Claro! Aqui está um passo a passo para criar uma seção "Passo a Passo" no seu README.md, onde você pode incluir as etapas necessárias para configurar e executar a aplicação Django.
-
-Exemplo de Seção "Passo a Passo"
-markdown
-Copiar código
 ## Passo a Passo para Configuração da Aplicação
 
 Siga os passos abaixo para configurar e executar a aplicação Django.
@@ -140,7 +94,7 @@ python manage.py migrate
 ## 7. Execute o Servidor 
 
 ```bash
-python manage.py migrate
+python manage.py runserver
 ```
 
 ## Exemplo de Tabela de Endpoints da API
