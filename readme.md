@@ -299,6 +299,17 @@ http://127.0.0.1:8000/api/unfollow/4/ # o numero 4 é o id do user que quero par
     "detail": "Postagem curtida"
 }
 ```
+## Imagens com Diagramas de arquitetura e ERD.
+
+- Diagrama de Arquitetura
+![Diagrama de Arquitetura do Projeto](./imagens_diagramas/diagrama_b2_final.drawio.png)
+
+
+
+- Diagrama de ERD
+![Diagrama ERD do Projeto](./imagens_diagramas/Untitled%20(1).png)
+
+- Para ver com mais detalhe as imagens basta entrar no diretório /imagens_diagramas.
 
 ## Conclusão
 Este projeto demonstra a implementação de uma API REST simples para uma plataforma de rede social utilizando Django e Django REST Framework. Esperamos que, ao seguir este guia, você consiga configurar e testar todos os endpoints corretamente.
