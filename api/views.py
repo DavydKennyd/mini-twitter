@@ -15,6 +15,7 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
+
 # Classe para login e para ter o token
 class LoginView(generics.GenericAPIView):
     serializer_class = LoginSerializer
