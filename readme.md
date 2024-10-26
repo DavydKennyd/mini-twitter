@@ -299,6 +299,7 @@ http://127.0.0.1:8000/api/unfollow/4/ # o numero 4 é o id do user que quero par
     "detail": "Postagem curtida"
 }
 ```
+## BONUS
 ## Método de busca por hastag ou alguma palavra específica:
 - Método: GET
 - URL: http://127.0.0.1:8000/api/posts/?search=< termo >
