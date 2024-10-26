@@ -85,6 +85,8 @@ DATABASES = {
 ### 6. Aplique as Migrações
 Aplique as migrações do Django para criar as tabelas necessárias no banco de dados:
 ```bash
+python manage.py makemigrations
+
 python manage.py migrate
 ```
 
