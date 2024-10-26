@@ -299,6 +299,34 @@ http://127.0.0.1:8000/api/unfollow/4/ # o numero 4 é o id do user que quero par
     "detail": "Postagem curtida"
 }
 ```
+## Método de busca por hastag ou alguma palavra específica:
+- Método: GET
+- URL: http://127.0.0.1:8000/api/posts/?search=<termo>
+- Nesse endpoint você pode pesquisar por alguma hastag ou um termo, basta apenas repitir os mesmos passos anteriores, faz login pega o token e  selecionar Headers, no "key" adicione "Authorization" e em "Value" e adicione "Bearer < Token de acesso >", e pressiona "send".
+- Exemplo de uso:
+```bash
+http://127.0.0.1:8000/api/posts/?search=django
+```
+- Resposta esperada:
+```bash
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 4,
+            "author": 2,
+            "text": "Api desenvolvida com #django, isso é apenas um teste",
+            "image": null,
+            "created_at": "2024-10-26T17:51:41.520892Z",
+            "likes_count": 0
+        }
+    ]
+}
+```
+
+
 ## Imagens com Diagramas de arquitetura e ERD.
 
 - Diagrama de Arquitetura

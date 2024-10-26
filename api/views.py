@@ -8,6 +8,8 @@ from django.contrib.auth import authenticate
 from rest_framework.pagination import PageNumberPagination
 from .models import Post, Follow, Like
 from .serializers import UserSerializer, PostSerializer, LoginSerializer
+from rest_framework.filters import SearchFilter
+
 
 # Classe para cadastrar Novos Usuarios 
 class RegisterView(generics.CreateAPIView):
@@ -41,6 +43,19 @@ class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated] 
+    filter_backends = [SearchFilter]
+    search_fields = ['text']
+
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search_query = self.request.query_params.get('search', None)
+
+        if search_query:
+            queryset = queryset.filter(text__icontains=search_query)
+
+
+        return queryset
 
 # Feed do usuário onde mostra postagens dos usuários seguidos
 class FeedView(generics.ListAPIView):
