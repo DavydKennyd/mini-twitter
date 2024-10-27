@@ -89,6 +89,25 @@ python manage.py makemigrations
 
 python manage.py migrate
 ```
+## Ao executar os comando acima, se você tiver usando alguma interface como o PgAdmin para minipular o banco de dados, vai perceber que no bd que você configurou na aplicação criou algumas tabelas, que são:
+```bash
+
+api_follow
+api_like
+api_post
+auth_group
+auth_group_pemissions
+auth_permissions 
+auth_user
+auth_user_groups
+auth_user_user_permissions 
+django_admin_log
+django_content_type
+django_migrations
+django_session
+```
+
+- 
 
 ### 7. Execute o Servidor 
 
@@ -115,7 +134,7 @@ python manage.py runserver
 
 
 ### EXEMPLOS DE REQUESIÇÕES
-#### 1.Registro de Usuários
+### 1.Registro de Usuários
 - **/api/register/**:  
   - Método: `POST`  
   - Payload:  
@@ -148,16 +167,22 @@ python manage.py runserver
 - **/api/unfollow/<int:user_id>/**:  
   - Método: `DELETE`  
   - Descrição: Deixa de seguir um usuário específico.
-### 6. Faz uma postagem 
+### 6. Fazer uma postagem 
 - **/api/posts/**:  
   - Método: `POST` e `GET`  
   - `POST`: Cria uma nova postagem.  
   - `GET`: Lista todas as postagens.
-### 7. Busca publicação específica
+### 7. Editar uma Postagem e excluir
+- **/api/posts/ < post_id >**
+  - Método: `PUT` e `DELETE`
+  - Com o método PUT você edita a postagem e o DELETE exclui a postagem.
+
+
+### 8. Busca publicação específica
 - **/api/posts/<int:post_id>/**:  
   - Método: `GET`  
   - Descrição: Obter detalhes de uma postagem específica.
-### 8. Curti uma postagem
+### 9. Curti uma postagem
 - **/api/posts/<int:post_id>/like/**:  
   - Método: `POST`  
   - Descrição: Curtir uma postagem específica.
@@ -235,6 +260,25 @@ Siga as instruções abaixo para testar os endpoints da API usando o Postman, vo
     "likes_count": 0
 }
 ```
+### Editar ou apagar a postagem
++ Para editar a postagem:
+  - Método: PUT
+  - URL: http://127.0.0.1:8000/api/posts/< post_id >/
+  - Nesse parte você pode editar uma postagem, para editar segue os passos: fazer o login, pegar o token e  selecionar Headers, no "key" adicione "Authorization" e em "Value" e adicione "Bearer < Token de acesso >".
+  - Exemplo:
+  - Faz o mesmo script como se fosse postar
+```bash
+http://127.0.0.1:8000/api/posts/5/ #o id da postagem
+#Após adicionar isso aqui no body, irá retorna a mesma postagem mas editada dessa vez
+{
+    "text": "Postagem editada 2.0"
+}
+```
++ Para Apagar uma postagem
+  - Método: DELETE
+  - URL: http://127.0.0.1:8000/api/posts/< id_post >/
+  - Dessa forma você irá apagar a postagem.
+
 ## Seguir e parar de seguir
 + Para seguir outro usuário
   - Método: POST
