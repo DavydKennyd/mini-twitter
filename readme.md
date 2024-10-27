@@ -89,7 +89,7 @@ python manage.py makemigrations
 
 python manage.py migrate
 ```
-## Ao executar os comando acima, se você tiver usando alguma interface como o PgAdmin para minipular o banco de dados, vai perceber que no bd que você configurou na aplicação criou algumas tabelas, que são:
+ - Ao executar os comando acima, se você tiver usando alguma interface como o PgAdmin para minipular o banco de dados, vai perceber que no bd que você configurou na aplicação criou algumas tabelas, que são:
 ```bash
 
 api_follow
