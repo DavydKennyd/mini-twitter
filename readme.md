@@ -99,7 +99,7 @@ python manage.py runserver
 ## Exemplo de Tabela de Endpoints da API
 
 ## Endpoints da API
-- Nos EndPoints lembre-se sempre de adicionar /api antes dos Enpoint que estão abaixo. Exemplo: **http://127.0.0.1:8000/api/register/**
+- Nos EndPoints lembre-se sempre de adicionar `/api` antes dos Enpoint que estão abaixo. Exemplo: **http://127.0.0.1:8000/api/register/**
 
 | Método | Endpoint                     | Descrição                                    |
 |--------|------------------------------|----------------------------------------------|
